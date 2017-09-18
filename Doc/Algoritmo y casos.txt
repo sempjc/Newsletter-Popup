@@ -1,0 +1,57 @@
+Newsletter Popup
+
+Posibles Casos
+1) Cliente Subcrito
+2) Ciente no subcrito
+	2.1) Cliente no subcrito, nunca ha visto el popup.
+	2.2) Cliente no subcrito, si ha visto el popup y lo rechazo n veces.
+		Si n es igual o mayor a x ya no se muestra mas el newsletter.
+	2.3) Cliente no subcrito, navegando paginas dentro del conteo regresivo del popup
+
+
+
+Caso 1:
+1.0 Cliente Subcrito
+	* Si el cliente esta subcrito, no se muestra el popup y posiblemente no se suba el script al phtml
+
+Caso 2:
+2.1 Si el cliente no esta subcrito y no ha visto el popup.
+	* Revisamos la existencia de la variable newsViewedTime.
+		* FALSE Variable newsViewedTime no esta definida o no existe, significa que el cliente no ha visto anteriormente el popup.
+		* Definimos la variable newsTimeStart con el tiempo actual, en el local storage.
+		* Aplicamos al contador el conteo base
+		* Iniciamos el conteo regresivo para mostrar el Popup del Newsletter.
+		* Cuando el conteo regresivo se complete mostramos el Popup.
+		* Dejamos vacia el valor de la variable newsTimeStart.
+		* Creamos la variable newsViewedTime en local storage con el tiempo actual.
+	* Termina ejecucion.
+
+2.2 Cliente no subcrito, si ha visto el popup y lo rechazo n veces anteriormente
+	* Revisamos la existencia de la variable newsViewedTime.
+	* TRUE Variable newsViewedTime esta definida. Significa que el cliente en algun momento alcanzo a ver el popup.
+	* Revisamos el lapso de tiempo transcurrido entre el ( Actual - Ultimo )
+	* Evaluamos si el tiempo es mayor a la cantidad de lapso definido.
+		* TRUE Iniciamos conteo regresivo para mostrar el Popup.
+		* FALSE Termina ejecucion
+
+
+2.3) CLiente no subcrito, pero navegando paginas dentro del conteo regresivo del popup
+	*** Siempre evaluamos para los primeros dos casos. En el caso donde se requiera llegar el conteo entoces procedemos a lo siguiente:
+
+	* Revisamos si esta definido la variable newsTimeStart:
+
+		* TRUE si esta definida, le restamos el tiempo actual para obtener el tiempo transcurrido.
+		* Restamos el tiempo transcurrido para obtener el tiempo restante.
+		* EL tiempo restante lo utilizaremos para actualizar el contador regresivo.
+			
+		* FALSE si no esta definido, 
+		* creamos la variable newsTimeStart con el tiempo actual, en el local storage
+		* Aplicamos al contador el conteo base.
+	
+	* Iniciamos el conteo regresivo para mostrar el popup del Newsletter
+	* Cuando el conteo regresivo se complete mostramos el popup
+	* Dejamos vacia la variable newsTimeStart
+	* Termina Ejecucion
+
+
+

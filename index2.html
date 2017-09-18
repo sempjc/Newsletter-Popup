@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            body {
+                margin: 0;
+            }
+            .main {
+                background: red;
+                width: 100%;
+                height: 1000px;
+            }
+
+
+            .newsletter-popup {
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+
+
+            .newsletter-popup__background {
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                opacity: 0.75;
+            }
+
+
+            .newsletter-popup__window {
+                background-color: blue;
+                min-width:260px;
+                max-width:800px;
+                width:75%;
+                height: 500px;
+            }
+
+            .newsletter-popup__page-window-l--centered {
+                margin: 0 auto;
+                position: absolute;
+                top:100px;
+                left: 0;
+                right: 0;
+            }
+
+
+            .newsletter-popup__page-window__content {
+                width: 100%;
+                height: 100%;
+                background-color: white;
+            }
+
+        </style>
+    </head>
+
+
+
+
+
+    <body>
+
+
+        <!-- Main Body of the document -->
+        <div class="main">
+            <!-- Main page content here -->
+        </div>
+
+
+
+
+
+
+        <!-- NewsLetter Popup sample structure -->
+
+        <!-- Main block of the Newsletter Popup -->
+        <div id="entrepids-newsletter"
+             class="newsletter-popup"
+             style="display: none;"
+             data-role="newsletter-main">
+
+            <!-- Popup background -->
+            <div class="newsletter-popup__background">
+
+                <!-- Main Window Block of the Newsletter Popup -->
+                <div class="newsletter-popup__window
+                newsletter-popup__page-window-l--centered">
+
+                    <!-- Main content of the Newsletter goes here -->
+                    <div class="newsletter-popup__page-window__content">
+
+                        <!-- Newsletter content goes here -->
+
+                        <button data-role="control" data-action="newsletter-close">X</button>
+                        <button data-role="control" data-action="newsletter-subscribe">Subscribe</button>
+
+                    </div>
+                    <!--// Main content of the Newsletter goes here -->
+                </div>
+                <!--// Main Window Block of the Newsletter Popup -->
+            </div>
+            <!--// Popup background -->
+        </div>
+        <!--// Main block of the Newsletter Popup -->
+
+
+        <!--
+
+            Data attribure structure
+
+            data-role = newsletter-main
+            data-action = close
+
+        -->
+
+
+
+
+
+
+
+
+
+        <script type="text/javascript" src="./build/app.js"></script>
+    </body>
+</html>
+
